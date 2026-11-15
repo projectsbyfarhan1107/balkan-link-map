@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -165,6 +165,7 @@ tbody tr:hover{background:var(--surface-2)}
 @media (max-width:1100px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2,.grid3,.pv,.cmpk{grid-template-columns:1fr}}
 @media (max-width:820px){.viz-root{grid-template-columns:1fr}.side{display:none}.wrap{padding:18px 16px 40px}.kv{grid-template-columns:1fr}}
 </style>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("balkan-theme")||"light";}catch(e){document.documentElement.dataset.theme="light";}</script>
 </head>
 <body>
 <div class="viz-root">
@@ -250,7 +251,7 @@ function show(v){
   if(v==='over') playOver(); if(v==='titles') renderTitles(); if(v==='urls') renderUrls(); if(v==='content') renderContent(); if(v==='overlap') renderOverlap(); if(v==='compare') renderCompare();
   try{ history.replaceState(null,'','#'+v); }catch(e){}
 }
-document.getElementById('themeBtn').onclick=()=>{ const r=document.documentElement; const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches; r.dataset.theme=dark?'light':'dark'; };
+document.getElementById('themeBtn').onclick=()=>{ const r=document.documentElement; const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches; r.dataset.theme=dark?'light':'dark'; try{localStorage.setItem('balkan-theme',r.dataset.theme);}catch(e){} };
 const nTitle=P.filter(p=>p.tc).length, nUrl=P.filter(p=>p.sc).length, nNcw=P.filter(p=>p.v==='needs_content_work').length;
 const pairs=[]; const seen=new Set(); P.forEach(p=>(p.ov||[]).forEach(o=>{ const k=[p.u,o.url].sort().join('|'); if(!seen.has(k)){ seen.add(k); pairs.push({a:p.u,b:o.url,s:o.sim}); } })); pairs.sort((x,y)=>y.s-x.s);
 document.getElementById('cT').textContent=nTitle; document.getElementById('cU').textContent=nUrl; document.getElementById('cC').textContent=nNcw; document.getElementById('cO').textContent=pairs.length;
