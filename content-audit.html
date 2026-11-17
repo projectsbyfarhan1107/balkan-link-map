@@ -162,6 +162,61 @@ tbody tr:hover{background:var(--surface-2)}
 .ovp{display:grid;grid-template-columns:1fr 60px 1fr;gap:10px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--grid)}
 .ovp .sim{text-align:center;font-weight:800;font-variant-numeric:tabular-nums;color:var(--accent)}
 .empty{color:var(--text-muted);padding:30px;text-align:center}
+/* problem list rows */
+.catbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.catchip{all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:12px;background:var(--surface-1);border:1px solid var(--border);font-size:12.5px;font-weight:600;color:var(--text-secondary);transition:all .15s}
+.catchip b{font-variant-numeric:tabular-nums;color:var(--text-primary)}
+.catchip:hover{border-color:var(--axis);transform:translateY(-1px)}
+.catchip[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:transparent}
+.catchip[aria-pressed="true"] b{color:#fff}
+.prow{display:grid;grid-template-columns:6px 1fr auto;gap:0;margin-bottom:10px;overflow:hidden;cursor:pointer;transition:transform .15s,box-shadow .15s;animation:rise .35s ease both}
+.prow:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(11,11,11,.05),0 12px 32px rgba(11,11,11,.10)}
+.prow:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.prow .stripe.crit{background:var(--crit)} .prow .stripe.warn{background:var(--warn)} .prow .stripe.low{background:var(--axis)}
+.prow .pmain{padding:14px 18px}
+.prow .ptitle{font-size:15.5px;font-weight:700;margin:6px 0 4px;letter-spacing:-.005em}
+.prow .psum{font-size:13px;color:var(--text-secondary)}
+.prow .pprev{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.prow .pprev span{font-size:12px;background:var(--surface-2);border-radius:8px;padding:3px 9px;color:var(--text-secondary);max-width:440px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prow .pgo{display:flex;align-items:center;padding:0 18px;color:var(--accent);font-weight:700;font-size:13px;white-space:nowrap}
+/* problem detail page */
+.ptop{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.ptop .pos{font-size:12.5px;color:var(--text-muted);margin-left:auto}
+.phero{padding:26px 28px 26px 34px;border-radius:20px;position:relative;overflow:hidden;background:var(--surface-1);border:1px solid var(--border);box-shadow:var(--shadow)}
+.phero::before{content:"";position:absolute;inset:0 auto 0 0;width:6px}
+.phero.crit::before{background:var(--crit)} .phero.warn::before{background:var(--warn)} .phero.low::before{background:var(--axis)}
+.phero h1{font-size:25px;margin:10px 0 6px;letter-spacing:-.015em;line-height:1.25}
+.phero .url{font:12.5px ui-monospace,Consolas,monospace;color:var(--text-muted);word-break:break-all}
+.phero .sum{font-size:15px;color:var(--text-secondary);margin-top:12px;max-width:860px}
+.pstats{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.pstat{padding:10px 14px;border-radius:12px;background:var(--surface-2);min-width:110px}
+.pstat b{display:block;font-size:22px;font-variant-numeric:tabular-nums;line-height:1.1}
+.pstat span{font-size:12px;color:var(--text-secondary)}
+.pgrid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;margin-top:20px;align-items:start}
+.alertbox{padding:16px 18px;border-radius:14px;margin-bottom:14px;font-size:14px}
+.alertbox .lbl{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;font-weight:800;margin-bottom:4px}
+.alertbox.crit{background:var(--crit-bg)} .alertbox.crit .lbl{color:var(--crit-ink)}
+.alertbox.warn{background:var(--warn-bg)} .alertbox.warn .lbl{color:var(--warn-ink)}
+.icard{display:grid;grid-template-columns:44px 1fr;gap:0 14px;padding:18px 20px;margin-bottom:12px;animation:rise .35s ease both}
+.icard .num{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;font-weight:800;font-size:14px}
+.icard .num.crit{background:var(--crit-bg);color:var(--crit-ink)} .icard .num.warn{background:var(--warn-bg);color:var(--warn-ink)} .icard .num.low{background:var(--surface-2);color:var(--text-secondary)}
+.icard h3{font-size:15.5px;margin:8px 0 0;line-height:1.4}
+.icard .qt{margin:12px 0 0;padding:12px 16px;border-radius:12px;background:var(--surface-2);font-size:14px;line-height:1.6}
+.icard .qt .lbl,.icard .fx .lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:var(--text-muted);margin-bottom:4px}
+.icard .fx{margin-top:10px;padding:12px 16px;border-radius:12px;background:var(--good-bg);font-size:14px;display:flex;gap:12px;align-items:flex-start}
+.icard .fx .lbl{color:var(--good-ink)}
+.icard .fx .btn{margin-left:auto;flex:none;padding:5px 10px;font-size:12px}
+.side-card{padding:18px 20px;margin-bottom:14px}
+.side-card h4{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin:0 0 10px;font-weight:800}
+.side-card .row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--grid);font-size:13px}
+.side-card .row:last-child{border:0}
+.side-card .row span:first-child{color:var(--text-secondary)}
+.side-card .row span:last-child{font-weight:600;text-align:right}
+.side-card .tt-old{font-size:13px}
+.side-card .tt-new{font-size:14.5px}
+.stick{position:sticky;top:20px}
+.kbd{font:11px ui-monospace,Consolas,monospace;border:1px solid var(--border);border-bottom-width:2px;border-radius:5px;padding:1px 5px;color:var(--text-secondary)}
+@media (max-width:1100px){.pgrid{grid-template-columns:1fr}.stick{position:static}}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 @media (max-width:1100px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2,.grid3,.pv,.cmpk{grid-template-columns:1fr}}
 @media (max-width:820px){.viz-root{grid-template-columns:1fr}.side{display:none}.wrap{padding:18px 16px 40px}.kv{grid-template-columns:1fr}}
@@ -214,8 +269,10 @@ tbody tr:hover{background:var(--surface-2)}
       <select id="cNcw" aria-label="Scope"><option value="">All pages with problems</option><option value="ncw">Needs content work only</option></select>
       <span style="flex:1"></span><button class="btn" id="copyIssues">⧉ Copy as CSV</button><button class="btn primary" id="dlIssues">⇩ Download CSV</button>
     </div>
+    <div class="catbar" id="catBar"></div>
     <div id="cList"></div>
   </div></section>
+  <section class="view" id="v-problem"><div class="wrap" id="pBody"></div></section>
   <section class="view" id="v-overlap"><div class="wrap">
     <div class="vhead"><div><h1>Overlapping articles</h1><p>Pairs of articles that cover nearly the same topic. They compete with each other in search. Consider merging them, or giving each a clearly different angle (the proposed titles already try to separate them where possible).</p></div></div>
     <div class="card" id="oList"></div>
@@ -252,12 +309,13 @@ const q = v => '"'+String(v??'').replace(/"/g,'""')+'"';
 
 let current='over';
 document.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>show(b.dataset.v));
-function show(v){
+function show(v, keepHash){
   current=v;
-  document.querySelectorAll('.navbtn[data-v]').forEach(b=>b.setAttribute('aria-selected', b.dataset.v===v));
+  document.querySelectorAll('.navbtn[data-v]').forEach(b=>b.setAttribute('aria-selected', b.dataset.v===(v==='problem'?'content':v)));
   document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on', s.id==='v-'+v));
   if(v==='over') playOver(); if(v==='titles') renderTitles(); if(v==='urls') renderUrls(); if(v==='content') renderContent(); if(v==='overlap') renderOverlap(); if(v==='compare') renderCompare();
-  try{ history.replaceState(null,'','#'+v); }catch(e){}
+  if(!keepHash){ try{ history.replaceState(null,'','#'+v); }catch(e){} }
+  document.getElementById('v-'+v).scrollTop=0;
 }
 document.getElementById('themeBtn').onclick=()=>{ const r=document.documentElement; const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches; r.dataset.theme=dark?'light':'dark'; try{localStorage.setItem('balkan-theme',r.dataset.theme);}catch(e){} };
 const nTitle=P.filter(p=>p.tc).length, nUrl=P.filter(p=>p.sc).length, nNcw=P.filter(p=>p.v==='needs_content_work').length;
@@ -393,30 +451,110 @@ function cFiltered(){
       && (!qv||(x.p.t0+' '+x.p.vf.summary+' '+x.p.vf.reason+' '+x.iss.map(i=>i.claim+' '+i.quote+' '+i.fix).join(' ')).toLowerCase().includes(qv)))
     .sort((a,b)=>(b.p.vf.ncw-a.p.vf.ncw)||(Math.min(...a.iss.map(i=>sevRank[i.severity]),3)-Math.min(...b.iss.map(i=>sevRank[i.severity]),3))||b.iss.length-a.iss.length);
 }
+const SEVR={high:0,medium:1,low:2};
+const topSev = (p,iss) => p.vf.ncw||iss.some(i=>i.severity==='high') ? 'crit' : (p.vf.manual||iss.some(i=>i.severity==='medium')) ? 'warn' : 'low';
+function renderCatBar(){
+  const counts={}; VP.forEach(p=>p.vf.issues.forEach(i=>counts[i.category]=(counts[i.category]||0)+1));
+  const cur=cCat.value;
+  document.getElementById('catBar').innerHTML=`<button class="catchip" data-cat="" aria-pressed="${cur===''}">All problems <b>${VS.confirmed||0}</b></button>`+
+    Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,n])=>`<button class="catchip" data-cat="${k}" aria-pressed="${cur===k}">${esc(CAT[k]||k)} <b>${n}</b></button>`).join('');
+}
+document.getElementById('catBar').addEventListener('click',e=>{ const c=e.target.closest('[data-cat]'); if(!c) return; cCat.value=c.dataset.cat; renderContent(); });
+let lastList=[];
 function renderContent(){
-  const rows=cFiltered();
+  renderCatBar();
+  const rows=cFiltered(); lastList=rows.map(r=>r.p.id);
   document.getElementById('cList').innerHTML = rows.map(({p,iss},n)=>{
     const sevs=['high','medium','low'].map(s=>[s,iss.filter(i=>i.severity===s).length]).filter(x=>x[1]);
-    return `<div class="card acard" data-cid="${p.id}" style="animation-delay:${Math.min(n,10)*25}ms">
-    <div class="ahead"><div>
-      <div class="meta">${p.vf.manual?'<span class="st warn">Check manually</span>':''}${p.vf.ncw?st(VERD,'needs_content_work'):''}${sevs.map(([s,c])=>`<span class="st ${SEV[s][0]}">${c} ${SEV[s][1].toLowerCase()}</span>`).join('')}<span class="pill">${esc(CT[p.ct]||p.ct)}</span><span class="pill">${p.w} words</span></div>
-      <div class="tt-same">${esc(p.t0)}</div>
-      <div class="muted" style="font-size:13px;margin-top:6px">${esc(p.vf.summary)}</div>
-    </div><div class="chev">›</div></div>
-    <div class="abody">
-      ${p.vf.manual?`<div class="pv" style="grid-template-columns:1fr"><div class="box" style="border-left:3px solid var(--warn)"><div class="lbl">Couldn't be checked automatically</div>${esc(p.vf.manual)}</div></div>`:''}${p.vf.ncw?`<div class="pv" style="grid-template-columns:1fr"><div class="box" style="border-left:3px solid var(--crit)"><div class="lbl">Why a new title isn't enough</div>${esc(p.vf.reason)}</div></div>`:''}
-      ${iss.map((i,k)=>`<div style="margin-top:14px;padding:14px 16px;border:1px solid var(--border);border-radius:12px">
-        <div class="diffrow"><span class="st ${SEV[i.severity]?.[0]||'warn'}">${SEV[i.severity]?.[1]||i.severity}</span><span class="pill">${esc(CAT[i.category]||i.category)}</span>${i.source==='new'?'<span class="pill">found during re-check</span>':''}</div>
-        <div style="font-weight:650;margin-top:8px">${esc(i.claim)}</div>
-        ${i.quote?`<blockquote style="margin:8px 0 0;padding:8px 12px;border-left:3px solid var(--axis);background:var(--surface-2);border-radius:0 8px 8px 0;font-size:13.5px">“${esc(i.quote)}”</blockquote>`:''}
-        ${i.fix?`<div style="margin-top:8px;font-size:13px"><b style="color:var(--good-ink)">Fix:</b> ${esc(i.fix)}</div>`:''}
-      </div>`).join('')}
-      <div class="copyrow"><a class="btn" href="${esc(p.u)}" target="_blank" rel="noopener">Open live page ↗</a><button class="btn" data-totitle="${esc(p.u)}">See this page in Title audit →</button></div>
-    </div></div>`; }).join('') || '<div class="empty">No verified problems match.</div>';
+    const prev=iss.slice().sort((a,b)=>SEVR[a.severity]-SEVR[b.severity]).slice(0,3);
+    return `<div class="card prow" data-pid="${p.id}" tabindex="0" role="button" aria-label="Open details for ${esc(p.t0)}" style="animation-delay:${Math.min(n,10)*25}ms">
+      <div class="stripe ${topSev(p,iss)}"></div>
+      <div class="pmain">
+        <div class="meta">${p.vf.manual?'<span class="st warn">Check manually</span>':''}${p.vf.ncw?st(VERD,'needs_content_work'):''}${sevs.map(([s,c])=>`<span class="st ${SEV[s][0]}">${c} ${SEV[s][1].toLowerCase()}</span>`).join('')}<span class="pill">${esc(CT[p.ct]||p.ct)}</span><span class="pill">${p.w} words</span></div>
+        <div class="ptitle">${esc(p.t0)}</div>
+        <div class="psum">${esc(p.vf.summary)}</div>
+        ${prev.length?`<div class="pprev">${prev.map(i=>`<span title="${esc(i.claim)}">${esc(CAT[i.category]||i.category)}: ${esc(i.claim)}</span>`).join('')}${iss.length>3?`<span>+${iss.length-3} more</span>`:''}</div>`:''}
+      </div>
+      <div class="pgo">View details →</div>
+    </div>`; }).join('') || '<div class="empty">No verified problems match.</div>';
 }
-document.getElementById('cList').addEventListener('click',e=>{
-  const t=e.target.closest('[data-totitle]'); if(t){ e.stopPropagation(); openPage(t.dataset.totitle); return; }
-  const c=e.target.closest('.acard'); if(c && e.target.closest('.ahead')) c.classList.toggle('open');
+document.getElementById('cList').addEventListener('click',e=>{ const r=e.target.closest('.prow'); if(r) openProblem(r.dataset.pid); });
+document.getElementById('cList').addEventListener('keydown',e=>{ const r=e.target.closest('.prow'); if(r&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); openProblem(r.dataset.pid); } });
+
+function openProblem(id){
+  const p=P.find(x=>x.id===id); if(!p||!p.vf) return;
+  if(!lastList.length) lastList=cFiltered().map(r=>r.p.id);
+  const pos=lastList.indexOf(id), prevId=pos>0?lastList[pos-1]:null, nextId=pos>=0&&pos<lastList.length-1?lastList[pos+1]:null;
+  const iss=p.vf.issues.slice().sort((a,b)=>SEVR[a.severity]-SEVR[b.severity]);
+  const cnt=s=>iss.filter(i=>i.severity===s).length;
+  document.getElementById('pBody').innerHTML=`
+    <div class="ptop">
+      <button class="btn" id="pBack">← All content problems</button>
+      <button class="btn" id="pPrev" ${prevId?'':'disabled'} title="Previous page (←)">‹ Previous</button>
+      <button class="btn" id="pNext" ${nextId?'':'disabled'} title="Next page (→)">Next ›</button>
+      <span class="pos">${pos>=0?`${pos+1} of ${lastList.length} · `:''}<span class="kbd">←</span> <span class="kbd">→</span> move · <span class="kbd">Esc</span> back</span>
+    </div>
+    <div class="phero ${topSev(p,iss)}">
+      <div style="display:flex;gap:6px;flex-wrap:wrap">${p.vf.manual?'<span class="st warn">Check manually</span>':''}${p.vf.ncw?st(VERD,'needs_content_work'):(iss.length?'<span class="st warn">Fix the copy</span>':'')}<span class="pill">${esc(CT[p.ct]||p.ct)}</span>${(PT[p.pt]&&PT[p.pt]!==(CT[p.ct]||''))?`<span class="pill">${PT[p.pt]}</span>`:''}</div>
+      <h1>${esc(p.t0)}</h1>
+      <div class="url">${esc(p.u)}</div>
+      <div class="sum">${esc(p.vf.summary)}</div>
+      <div class="pstats">
+        <div class="pstat"><b>${iss.length}</b><span>verified problem${iss.length===1?'':'s'}</span></div>
+        ${cnt('high')?`<div class="pstat" style="background:var(--crit-bg)"><b style="color:var(--crit-ink)">${cnt('high')}</b><span>high severity</span></div>`:''}
+        ${cnt('medium')?`<div class="pstat" style="background:var(--warn-bg)"><b style="color:var(--warn-ink)">${cnt('medium')}</b><span>medium</span></div>`:''}
+        ${cnt('low')?`<div class="pstat"><b>${cnt('low')}</b><span>low</span></div>`:''}
+        <div class="pstat"><b>${p.w.toLocaleString()}</b><span>words</span></div>
+      </div>
+    </div>
+    <div class="pgrid">
+      <div>
+        ${p.vf.manual?`<div class="alertbox warn"><div class="lbl">Couldn't be checked automatically</div>${esc(p.vf.manual)}</div>`:''}
+        ${p.vf.ncw?`<div class="alertbox crit"><div class="lbl">Why a new title isn't enough</div>${esc(p.vf.reason)}</div>`:''}
+        ${iss.length?`<div class="sec-title" style="margin-top:6px">Verified problems on this page</div>`:''}
+        ${iss.map((i,k)=>`<div class="card icard" style="animation-delay:${k*50}ms">
+          <div class="num ${SEV[i.severity]?.[0]||'warn'}">${k+1}</div>
+          <div>
+            <div class="diffrow"><span class="st ${SEV[i.severity]?.[0]||'warn'}">${SEV[i.severity]?.[1]||i.severity}</span><span class="pill">${esc(CAT[i.category]||i.category)}</span>${i.source==='new'?'<span class="pill">found during re-check</span>':''}</div>
+            <h3>${esc(i.claim)}</h3>
+            ${i.quote?`<div class="qt"><div class="lbl">On the live page right now</div>“${esc(i.quote)}”</div>`:''}
+            ${i.fix?`<div class="fx"><div><div class="lbl">Suggested fix</div>${esc(i.fix)}</div><button class="btn" data-copyfix="${k}">⧉ Copy</button></div>`:''}
+          </div></div>`).join('')}
+      </div>
+      <div class="stick">
+        <div class="card side-card"><h4>Actions</h4>
+          <div style="display:grid;gap:8px"><a class="btn primary" href="${esc(p.u)}" target="_blank" rel="noopener" style="justify-content:center">Open live page ↗</a>
+          <button class="btn" id="pCopyAll" style="justify-content:center">⧉ Copy all problems + fixes</button>
+          <button class="btn" id="pToTitle" style="justify-content:center">See this page in Title audit →</button></div></div>
+        <div class="card side-card"><h4>Title</h4>
+          ${p.tc?`<div class="tt-old">${esc(p.t0)}</div><div class="tt-new" style="margin-top:4px"><span class="arrow">→</span> ${esc(p.t1)}</div><div class="muted" style="font-size:12px;margin-top:6px">New title proposed in the title audit</div>`:`<div style="font-size:14px;font-weight:650">${esc(p.t0)}</div><div class="muted" style="font-size:12px;margin-top:6px">Title is fine as is</div>`}
+        </div>
+        <div class="card side-card"><h4>Page facts</h4>
+          <div class="row"><span>Content type</span><span>${esc(CT[p.ct]||p.ct)}</span></div>
+          <div class="row"><span>Page type</span><span>${PT[p.pt]||''}</span></div>
+          <div class="row"><span>Published</span><span>${esc(p.d||'')}</span></div>
+          <div class="row"><span>Title vs content</span><span>${esc((INT[p.im]||['',''])[1].replace('Intent: ',''))}</span></div>
+          <div class="row"><span>URL</span><span>${p.sc?'Change proposed':'Keep'}</span></div>
+          <div class="row"><span>Audit ID</span><span>${esc(p.id)}</span></div>
+        </div>
+        <div class="card side-card"><h4>What the content delivers</h4><div style="font-size:13.5px;color:var(--text-secondary)">${esc(p.sm)}</div></div>
+      </div>
+    </div>`;
+  show('problem', true);
+  try{ history.replaceState(null,'','#problem-'+id); }catch(e){}
+  document.getElementById('pBack').onclick=()=>show('content');
+  document.getElementById('pPrev').onclick=()=>prevId&&openProblem(prevId);
+  document.getElementById('pNext').onclick=()=>nextId&&openProblem(nextId);
+  document.getElementById('pToTitle').onclick=()=>openPage(p.u);
+  document.getElementById('pCopyAll').onclick=e=>copy(`${p.t0}\n${p.u}\n${p.vf.ncw?'NEEDS CONTENT WORK: '+p.vf.reason+'\n':''}\n`+iss.map((i,k)=>`${k+1}. [${SEV[i.severity]?.[1]||i.severity}] ${i.claim}\n   On page: "${i.quote}"\n   Fix: ${i.fix}`).join('\n\n'), e.currentTarget);
+  document.querySelectorAll('#pBody [data-copyfix]').forEach(b=>b.onclick=()=>copy(iss[+b.dataset.copyfix].fix, b));
+  window._pNav={prevId,nextId};
+}
+addEventListener('keydown',e=>{
+  if(current!=='problem'||e.target.closest('input,select,textarea')) return;
+  if(e.key==='Escape') show('content');
+  else if(e.key==='ArrowLeft'&&window._pNav?.prevId) openProblem(window._pNav.prevId);
+  else if(e.key==='ArrowRight'&&window._pNav?.nextId) openProblem(window._pNav.nextId);
 });
 function issuesCsv(){ const h=['page_id','url','title','needs_content_work','severity','category','problem','quote_from_page','suggested_fix'];
   return [h.join(',')].concat(cFiltered().flatMap(({p,iss})=>(iss.length?iss:[{}]).map(i=>[p.id,p.u,p.t0,p.vf.ncw?'yes':'no',i.severity||'',CAT[i.category]||i.category||'',i.claim||p.vf.reason||p.vf.manual,i.quote||'',i.fix||''].map(q).join(',')))).join('\n'); }
@@ -458,8 +596,8 @@ function renderDiff(){
 }
 
 const hv=location.hash.slice(1);
-if(['titles','urls','content','overlap','compare'].includes(hv)) show(hv); else playOver();
-addEventListener('hashchange',()=>{ const h=location.hash.slice(1)||'over'; if(h!==current && ['over','titles','urls','content','overlap','compare'].includes(h)) show(h); });
+if(hv.startsWith('problem-')) openProblem(hv.slice(8)); else if(['titles','urls','content','overlap','compare'].includes(hv)) show(hv); else playOver();
+addEventListener('hashchange',()=>{ const h=location.hash.slice(1)||'over'; if(h.startsWith('problem-')) openProblem(h.slice(8)); else if(h!==current && ['over','titles','urls','content','overlap','compare'].includes(h)) show(h); });
 })();
 </script>
 </body>
